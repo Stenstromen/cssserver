@@ -1,7 +1,7 @@
 FROM steamcmd/steamcmd:alpine as build
 WORKDIR /
 RUN mkdir /data
-CMD /usr/bin/steamcmd +login anonymous +force_install_dir /data +app_update 232330 +quit
+RUN steamcmd +login anonymous +force_install_dir /data +app_update 232330 +quit
 
 FROM steamcmd/steamcmd:alpine
 COPY --from=build /data /
