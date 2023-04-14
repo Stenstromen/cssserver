@@ -4,8 +4,9 @@ ENV MAXPLAYERS="22"
 RUN $(echo steam steam/question select "I AGREE" | debconf-set-selections) && \
 $(echo steam steam/license note '' | debconf-set-selections) && \
 dpkg --add-architecture i386 && \
-apt-get update && \
-apt-get install -y lib32gcc-s1 \
+apt update && \
+apt install -y \ 
+lib32gcc-s1 \
 curl \ 
 lib32stdc++6 \
 ca-certificates \ 
