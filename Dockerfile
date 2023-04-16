@@ -43,10 +43,15 @@ EXPOSE 27016/udp
 EXPOSE 27016/tcp
 WORKDIR /home/cssserver/serverfiles
 CMD ./srcds_run -game cstrike \
+-nointro \
+-nojoy \
+-noipx \
+-heapsize 128000 \
 -strictportbind \
 +ip 0.0.0.0 \
 -port 27016 \
 +clientport 27005 \
 +map $MAP \
 +servercfgfile cssserver.cfg \
--maxplayers $MAXPLAYERS
+-maxplayers $MAXPLAYERS \
+2> /dev/null
